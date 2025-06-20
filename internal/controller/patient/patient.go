@@ -24,7 +24,7 @@ func NewV1() patient.PatientV1 {
 func (c *PatientController) Create(ctx context.Context, req *patient.CreatePatientReq) (res *patient.CreatePatientRes, err error) {
 
 	userRole := gconv.String(gctx.Ctx(ctx).Value(consts.CtxUserRole))
-	if userRole != "doctor" {
+	if userRole != "receptionist" {
 		return nil, gerror.NewCode(gcode.CodeNotAuthorized, "forbidden: insufficient permission")
 	}
 	

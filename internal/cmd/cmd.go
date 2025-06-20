@@ -47,7 +47,6 @@ var (
 					new(consultation.ConsultationController),
 				)
 			})
-
 		
 			s.SetOpenApiPath("/api.json")
 			s.SetSwaggerPath("/swagger")

@@ -2,6 +2,7 @@ package consultation
 
 import (
 	"context"
+	"log"
 	"medicare/api/v1/consultation"
 	"medicare/internal/logic"
 
@@ -20,6 +21,7 @@ func NewV1() consultation.ConsultationV1 {
 
 func (c *ConsultationController) Create(ctx context.Context, req *consultation.CreateConsultationReq) (*consultation.CreateConsultationRes, error) {
 	userID := gconv.String(gctx.Ctx(ctx).Value("UserID"))
+	log.Println(userID)
 	return logic.CreateConsultation(ctx, req, userID)
 }
 
