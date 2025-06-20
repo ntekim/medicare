@@ -30,7 +30,7 @@ func TestCreatePatient(t *testing.T) {
 		Address:       "123 Street",
 	}
 
-	mockQ.On("CreatePatient", mock.Anything, mock.AnythingOfType("db.CreatePatientParams")).
+	mockQ.On("CreatePatient", mock.Anything, mock.AnythingOfType("postgres.CreatePatientParams")).
 		Return(uuid.New(), nil).Once()
 
 	res, err := logic.Patient.Create(context.Background(), req)
@@ -82,7 +82,7 @@ func TestUpdatePatient(t *testing.T) {
 		Address:       "456 Street",
 	}
 
-	mockQ.On("UpdatePatient", mock.Anything, mock.AnythingOfType("db.UpdatePatientParams")).
+	mockQ.On("UpdatePatient", mock.Anything, mock.AnythingOfType("postgres.UpdatePatientParams")).
 		Return(nil).Once()
 
 	res, err := logic.Patient.Update(context.Background(), req)
