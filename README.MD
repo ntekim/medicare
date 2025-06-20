@@ -70,6 +70,17 @@ A web application built in Go for managing patient records. It includes role-bas
 
 ---
 
+## 🧾 API Documentation
+
+This project uses [OpenAPI](https://www.openapis.org/) and Swagger UI for API documentation.
+
+### 📘 View Swagger UI
+
+- [Local OpenAPI Doc](http://localhost:8000/api.json)
+- [Local Swagger Docs](http://localhost:8000/swagger/)
+
+
+
 ## 🧪 Testing
 
 - Basic unit tests for:
@@ -83,10 +94,13 @@ A web application built in Go for managing patient records. It includes role-bas
 
 ```bash
 # 1. Setup DB (PostgreSQL)
-createdb receptionist_doctor
 
 # 2. Run migrations
-make migrate-up
+make migration-up
+
 
 # 3. Build and run the app
 go run main.go
+
+# 4. Generate Sqlc files
+make sqlc-gen
